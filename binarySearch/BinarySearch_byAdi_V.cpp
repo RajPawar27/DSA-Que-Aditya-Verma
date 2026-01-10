@@ -554,6 +554,51 @@ class lect16{
         return false;
     }
 };
+
+
+
+// page allocation 
+class lect17{
+    public:
+    bool isPossible(vector<int>& arr, int n, int m, int mid) {
+        int studentCount = 1;
+        int pageSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (pageSum + arr[i] <= mid) {
+                pageSum += arr[i];
+            } 
+            else {
+                studentCount++;
+                if (studentCount > m || arr[i] > mid) {
+                    return false;
+                }
+                pageSum = arr[i];
+            }
+        }
+        return true;
+    }
+
+    int allocatePages(vector<int>& arr, int n, int m) {
+        int start = 0;
+        int end = accumulate(arr.begin(), arr.end(), 0);
+        int result = -1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (isPossible(arr, n, m, mid)) {
+                result = mid;
+                end = mid - 1;
+            } 
+            else {
+                start = mid + 1;
+            }
+        }
+        return result;
+    }
+};
+
 int main(){
     
     return 0;
