@@ -1,0 +1,124 @@
+
+# binarySearch by Aditya Verma
+
+lect01
+- basic Binary 
+    - array need to be sorted - "Think oof the BS"
+
+lect02 
+- mid calculation : 
+    1. mid = (high + low)/2;
+    2. mid = start + (end-start)/2
+
+            0  1  2  3  4  5  6  7
+    arr[] = {10,20,21,31,42,42,45,50};
+d:\VS_code\DSA\ARRAY\Aditya_Verma\BinarySearch_byAdi_V.cpp
+
+    ```
+    int binarySearch(vector<int>& arr, int target)
+    { 
+        int low = 0;
+        int high = arr.size() - 1;
+
+        while(low <= high){
+            int mid = low + (high - low) / 2;
+
+            if(arr[mid] == target){
+                return mid;
+            }
+            else if(arr[mid] < target){
+                low = mid + 1;
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+
+    ```
+
+lect03 : 
+- Binary in reverse order
+    - manage the condition acc
+
+lect04 : 
+- Find First and Last Position of Element in Sorted Array
+
+    Example 1:
+    Input: nums = [5,7,7,8,8,10], target = 8
+    Output: [3,4]
+
+    Example 2:
+    Input: nums = [5,7,7,8,8,10], target = 6
+    Output: [-1,-1]
+
+lect06 :
+- Find Minimum in Rotated Sorted Array
+    - logic is to compare the mid with (prev, next) of it 
+
+lect07 : 
+- finding ele in Rotated sorted array
+    - get the pivote index and then search in each array one after one 
+    - BS(0,pivote -1) and BS(pivote, end);
+
+lect08 : 
+- finding ele in nearly sorted array 
+    - in normal bs : mid 
+    - in this array : check for (mid - 1), mid, (mid + 1)  and iterate -2 and +2
+
+lect09 :
+- finding the floor
+    - given ele = key 
+        1. if the key exit => key
+        2. if key not exist => greatest ele less than key
+        3. if less than arr[0] => -1
+
+lect10 :
+- finding the ceil
+    - given ele = key 
+        1. if the key exit => key
+        2. if key not exist => smallest ele greater than key
+        3. if greater than arr[n-1] => -1
+
+lect11 : 
+- finding next alphabet 
+    - strictly next alphabet 
+
+lect12 : 
+- finding ele in infintely sorted Array
+    extra code to find the limit over the array 
+
+lect13 :
+- find First occurace of 1 in binary array 
+    get the limit range where the first 1 will occure 
+
+lect14 : 
+- minimum difference element in sorted array    
+    - if ele is present => return that ele 
+    - if not the the bs pointer for BS (high and the low ) will be ponting to the resepective position 
+     => return min diff possilble
+
+lect15 : 
+- BS on answer : to reduce the sizalbe by 2 each time 
+    - reform the the condition such way that 
+    ex. peak ele
+
+lect16 : 
+- peak element : 
+    Q - unsorted array & return ind of peak ele 
+    - edge cases => at 0th and (n-1)th
+    
+lect17 : 
+- searching ele in bitonic array 
+    - finding peak ele, base upon that do BS in separate array (0 to peak) and (peak + 1  to end)
+
+lect18 :
+- Search in a row wise column wise sorted array
+                  
+                 _|_
+    | 1  10  20  30  | <-- 
+    | 3  12  22  34  | 
+    | 5  15  23  45  | 
+    | 8  19  25  90  |  
