@@ -34,7 +34,7 @@ class lect03{
 
     int bs(vector<int>&arr, int key)
     {
-        order = isAscending(arr);
+        bool order = isAscending(arr);
         int start = 0;  
         int end = arr.size() - 1;
         
@@ -118,7 +118,7 @@ class lect04{
 
         return {first,last};
     }
-}
+};
 
 
 //couting occurrences of an element in a sorted array
